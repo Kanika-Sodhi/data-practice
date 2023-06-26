@@ -1,0 +1,7 @@
+pyspark==3.2.2
+jupyterlab
+pandas
+pyyaml
+delta-spark
+isodate~=0.6.1
+findspark~=2.0.1

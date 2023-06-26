@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+      
+  hellofresh_container:
+    image: hellofresh_container
+    build: images/hellofresh_container
+    command: ["./main.py"]
+    volumes:
+      - ./data/input:/data/input
+      - ./logs:/logs
+      - ./transformed_data:/transformed_data
+      - ./template:/template
+      - ./persist:/persist

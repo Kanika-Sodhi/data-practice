@@ -1,0 +1,10 @@
+tablename,fields,dtype
+recipes,cookTime,string
+recipes,datePublished,date
+recipes,description,string
+recipes,image,string
+recipes,ingredients,string
+recipes,name,string
+recipes,prepTime,string
+recipes,recipeYield,int
+recipes,url,string

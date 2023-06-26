@@ -1,0 +1,1354 @@
+2023-04-27 22:50:32,191:INFO:main:Recipe Application started
+2023-04-27 22:51:30,487:INFO:pipeline:run_pipeline method started
+2023-04-27 22:51:30,488:INFO:ingest:schema validation started
+2023-04-27 22:51:42,268:INFO:ingest:template and json schema matching
+2023-04-27 22:51:42,268:INFO:pipeline:schema validation done
+2023-04-27 22:51:45,428:INFO:ingest:data ingested into ingest folder
+2023-04-27 22:51:45,428:INFO:pipeline:ingest done
+2023-04-27 22:51:45,429:INFO:transform:parsing of column started
+2023-04-27 22:51:47,241:INFO:transform:parsing of the column done
+2023-04-27 22:51:47,242:INFO:pipeline:parse done
+2023-04-27 22:51:47,242:INFO:transform:Quality data started
+2023-04-27 22:51:47,442:INFO:transform:Quality data passed
+2023-04-27 22:51:47,442:INFO:pipeline:data quality checks done
+2023-04-27 22:51:47,442:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-04-27 22:51:52,869:INFO:pipeline:recipe difficulties insights done
+2023-04-27 22:52:07,884:ERROR:pipeline:FoundError An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 14.0 failed 1 times, most recent failure: Lost task 0.0 in stage 14.0 (TID 18) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 52, in run_pipeline
+    persist_process.persist_csv_records(recipe_difficulties, persist_path)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\persist.py", line 14, in persist_csv_records
+    return spark_utility.write_csv_file(df, file)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\utility\spark_utility.py", line 23, in write_csv_file
+    write_df = df.write.format("csv").mode('overwrite').save(path)
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\readwriter.py", line 740, in save
+    self._jwrite.save(path)
+  File "C:\python\lib\site-packages\py4j\java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "C:\python\lib\site-packages\py4j\protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 14.0 failed 1 times, most recent failure: Lost task 0.0 in stage 14.0 (TID 18) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+2023-04-27 22:52:07,996:INFO:main:Pipeline executed
+2023-04-27 22:52:08,700:INFO:py4j.clientserver:Closing down clientserver connection
+2023-04-27 23:07:48,387:INFO:main:Recipe Application started
+2023-04-27 23:09:13,853:INFO:pipeline:run_pipeline method started
+2023-04-27 23:09:13,853:INFO:ingest:schema validation started
+2023-04-27 23:09:30,087:INFO:ingest:template and json schema matching
+2023-04-27 23:09:30,087:INFO:pipeline:schema validation done
+2023-04-27 23:09:34,234:INFO:ingest:data ingested into ingest folder
+2023-04-27 23:09:34,234:INFO:pipeline:ingest done
+2023-04-27 23:09:34,235:INFO:transform:parsing of column started
+2023-04-27 23:09:37,301:INFO:transform:parsing of the column done
+2023-04-27 23:09:37,301:INFO:pipeline:parse done
+2023-04-27 23:09:37,301:INFO:transform:Quality data started
+2023-04-27 23:09:37,560:INFO:transform:Quality data passed
+2023-04-27 23:09:37,561:INFO:pipeline:data quality checks done
+2023-04-27 23:09:37,561:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-04-27 23:09:43,536:INFO:pipeline:recipe difficulties insights done
+2023-04-27 23:09:54,602:INFO:root:run_pipeline method ended
+2023-04-27 23:09:54,602:INFO:main:Pipeline executed
+2023-04-27 23:09:55,183:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-06 13:48:57,387:INFO:main:Recipe Application started
+2023-05-06 13:49:16,221:INFO:pipeline:run_pipeline method started
+2023-05-06 13:49:16,221:INFO:ingest:schema validation started
+2023-05-06 13:49:16,222:INFO:ingest:The file exists
+2023-05-06 13:49:26,069:ERROR:pipeline:FoundError can only concatenate list (not "str") to list
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 32, in run_pipeline
+    validate_df = ingest_process.schema_validation(template_path, recipes_raw_data, recipe_temp_file_name)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\ingest.py", line 28, in schema_validation
+    reading_template = spark_utility.reading_csv_file(self.spark, template_path + recipe_temp_file_name, True)
+TypeError: can only concatenate list (not "str") to list
+2023-05-06 13:49:26,086:INFO:main:Pipeline executed
+2023-05-06 13:49:26,554:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-06 13:51:55,908:INFO:main:Recipe Application started
+2023-05-06 13:52:17,183:INFO:pipeline:run_pipeline method started
+2023-05-06 13:52:17,183:INFO:ingest:schema validation started
+2023-05-06 13:52:17,183:ERROR:pipeline:FoundError stat: path should be string, bytes, os.PathLike or integer, not list
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 32, in run_pipeline
+    validate_df = ingest_process.schema_validation(recipes_raw_data, template_path, recipe_temp_file_name)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\ingest.py", line 19, in schema_validation
+    if os.path.exists(recipes_raw_data):
+  File "C:\python\lib\genericpath.py", line 19, in exists
+    os.stat(path)
+TypeError: stat: path should be string, bytes, os.PathLike or integer, not list
+2023-05-06 13:52:17,190:INFO:main:Pipeline executed
+2023-05-06 13:52:17,486:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-06 17:04:08,349:INFO:main:Recipe Application started
+2023-05-06 17:04:26,129:INFO:pipeline:run_pipeline method started
+2023-05-06 17:04:26,129:INFO:ingest:schema validation started
+2023-05-06 17:04:26,133:INFO:ingest:../../data/input/recipes-000.json exists in the folder.
+2023-05-06 17:04:26,134:INFO:ingest:../../data/input/recipes-001.json exists in the folder.
+2023-05-06 17:04:26,135:INFO:ingest:../../data/input/recipes-002.json exists in the folder.
+2023-05-06 17:04:35,349:INFO:ingest:template and json schema matching
+2023-05-06 17:04:35,350:INFO:pipeline:schema validation done
+2023-05-06 17:04:38,366:INFO:ingest:data ingested into ingest folder
+2023-05-06 17:04:38,366:INFO:pipeline:ingest done
+2023-05-06 17:04:38,366:INFO:transform:parsing of column started
+2023-05-06 17:04:39,584:INFO:transform:parsing of the column done
+2023-05-06 17:04:39,585:INFO:pipeline:parse done
+2023-05-06 17:04:39,585:INFO:transform:Quality data started
+2023-05-06 17:04:39,773:INFO:transform:Quality data passed
+2023-05-06 17:04:39,773:INFO:pipeline:data quality checks done
+2023-05-06 17:04:39,773:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-05-06 17:04:42,865:INFO:pipeline:recipe difficulties insights done
+2023-05-06 17:04:48,839:INFO:root:run_pipeline method ended
+2023-05-06 17:04:48,839:INFO:main:Pipeline executed
+2023-05-06 17:04:49,176:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-06 18:24:53,339:INFO:main:Recipe Application started
+2023-05-07 00:21:27,040:INFO:main:Recipe Application started
+2023-05-07 00:21:46,337:INFO:pipeline:run_pipeline method started
+2023-05-07 00:21:46,337:INFO:ingest:schema validation started
+2023-05-07 00:21:46,341:ERROR:pipeline:FoundError [WinError 123] The filename, directory name, or volume label syntax is incorrect: '../../data/input/*.json'
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 32, in run_pipeline
+    validate_df = ingest_process.schema_validation(recipes_raw_data, template_path, recipe_temp_file_name)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\ingest.py", line 20, in schema_validation
+    if len(os.listdir(raw_data)) > 0:
+OSError: [WinError 123] The filename, directory name, or volume label syntax is incorrect: '../../data/input/*.json'
+2023-05-07 00:21:46,343:INFO:main:Pipeline executed
+2023-05-07 00:21:46,713:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-07 01:00:53,124:INFO:main:Recipe Application started
+2023-05-07 01:01:13,629:INFO:pipeline:run_pipeline method started
+2023-05-07 01:01:13,630:ERROR:pipeline:FoundError Ingest.schema_validation() missing 1 required positional argument: 'recipe_temp_file_name'
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 32, in run_pipeline
+    validate_df = ingest_process.schema_validation(recipes_raw_data, template_path, recipe_temp_file_name)
+TypeError: Ingest.schema_validation() missing 1 required positional argument: 'recipe_temp_file_name'
+2023-05-07 01:01:13,631:INFO:main:Pipeline executed
+2023-05-07 01:01:14,033:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-07 01:07:03,676:INFO:main:Recipe Application started
+2023-05-07 01:07:21,609:INFO:pipeline:run_pipeline method started
+2023-05-07 01:07:21,609:ERROR:pipeline:FoundError Ingest.schema_validation() missing 1 required positional argument: 'recipe_temp_file_name'
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 33, in run_pipeline
+    validate_df = ingest_process.schema_validation(recipes_folder+recipes_raw_data, template_path, recipe_temp_file_name)
+TypeError: Ingest.schema_validation() missing 1 required positional argument: 'recipe_temp_file_name'
+2023-05-07 01:07:21,610:INFO:main:Pipeline executed
+2023-05-07 01:07:21,997:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-07 01:11:06,850:INFO:main:Recipe Application started
+2023-05-07 01:11:24,288:INFO:pipeline:run_pipeline method started
+2023-05-07 01:11:24,288:INFO:ingest:schema validation started
+2023-05-07 01:11:24,290:ERROR:pipeline:FoundError [WinError 123] The filename, directory name, or volume label syntax is incorrect: '*.json'
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 33, in run_pipeline
+    validate_df = ingest_process.schema_validation(recipes_folder, recipes_raw_data, template_path,
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\ingest.py", line 20, in schema_validation
+    if len(os.listdir(raw_data)) == 0:
+OSError: [WinError 123] The filename, directory name, or volume label syntax is incorrect: '*.json'
+2023-05-07 01:11:24,293:INFO:main:Pipeline executed
+2023-05-07 01:11:24,729:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-07 01:12:34,250:INFO:main:Recipe Application started
+2023-05-07 01:12:56,965:INFO:pipeline:run_pipeline method started
+2023-05-07 01:12:56,965:INFO:ingest:schema validation started
+2023-05-07 01:12:56,970:INFO:ingest:Directory is not empty
+2023-05-07 01:13:07,404:INFO:ingest:template and json schema matching
+2023-05-07 01:13:07,404:INFO:pipeline:schema validation done
+2023-05-07 01:13:10,862:INFO:ingest:data ingested into ingest folder
+2023-05-07 01:13:10,863:INFO:pipeline:ingest done
+2023-05-07 01:13:10,863:INFO:transform:parsing of column started
+2023-05-07 01:13:12,211:INFO:transform:parsing of the column done
+2023-05-07 01:13:12,211:INFO:pipeline:parse done
+2023-05-07 01:13:12,211:INFO:transform:Quality data started
+2023-05-07 01:13:12,413:INFO:transform:Quality data passed
+2023-05-07 01:13:12,413:INFO:pipeline:data quality checks done
+2023-05-07 01:13:12,413:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-05-07 01:13:15,946:INFO:pipeline:recipe difficulties insights done
+2023-05-07 01:13:23,714:INFO:root:run_pipeline method ended
+2023-05-07 01:13:23,714:INFO:main:Pipeline executed
+2023-05-07 01:13:24,173:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-07 14:48:38,314:INFO:main:Recipe Application started
+2023-05-07 14:49:04,740:INFO:pipeline:run_pipeline method started
+2023-05-07 14:49:04,740:INFO:ingest:schema validation started
+2023-05-07 14:49:04,747:INFO:ingest:Directory is not empty
+2023-05-07 14:49:13,700:INFO:ingest:template and json schema matching
+2023-05-07 14:49:13,700:INFO:pipeline:schema validation done
+2023-05-07 14:49:16,373:INFO:ingest:data ingested into ingest folder
+2023-05-07 14:49:16,374:INFO:pipeline:ingest done
+2023-05-07 14:49:16,374:INFO:transform:parsing of column started
+2023-05-07 14:49:17,699:INFO:transform:parsing of the column done
+2023-05-07 14:49:17,699:INFO:pipeline:parse done
+2023-05-07 14:49:17,699:INFO:transform:Quality data started
+2023-05-07 14:49:17,900:INFO:transform:Quality data passed
+2023-05-07 14:49:17,900:INFO:pipeline:data quality checks done
+2023-05-07 14:49:17,900:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-05-07 14:49:21,503:INFO:pipeline:recipe difficulties insights done
+2023-05-07 14:49:32,018:INFO:root:run_pipeline method ended
+2023-05-07 14:49:32,018:INFO:main:Pipeline executed
+2023-05-07 14:49:32,627:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-27 23:53:54,462:INFO:main:Recipe Application started
+2023-05-27 23:54:39,744:INFO:pipeline:run_pipeline method started
+2023-05-27 23:54:39,744:INFO:ingest:schema validation started
+2023-05-27 23:54:39,793:INFO:ingest:Directory is not empty
+2023-05-27 23:55:00,080:INFO:ingest:template and json schema matching
+2023-05-27 23:55:00,080:INFO:pipeline:schema validation done
+2023-05-27 23:55:04,307:INFO:ingest:data ingested into ingest folder
+2023-05-27 23:55:04,307:INFO:pipeline:ingest done
+2023-05-27 23:55:04,308:INFO:transform:parsing of column started
+2023-05-27 23:55:06,463:INFO:transform:parsing of the column done
+2023-05-27 23:55:06,463:INFO:pipeline:parse done
+2023-05-27 23:55:06,463:INFO:transform:Quality data started
+2023-05-27 23:55:06,783:INFO:transform:Quality data passed
+2023-05-27 23:55:06,784:INFO:pipeline:data quality checks done
+2023-05-27 23:55:06,784:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-05-27 23:55:12,583:INFO:pipeline:recipe difficulties insights done
+2023-05-27 23:55:25,814:ERROR:pipeline:FoundError An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 20.0 failed 1 times, most recent failure: Lost task 0.0 in stage 20.0 (TID 26) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 52, in run_pipeline
+    persist_process.persist_csv_records(recipe_difficulties, persist_path)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\persist.py", line 14, in persist_csv_records
+    return spark_utility.write_csv_file(df, file)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\utility\spark_utility.py", line 23, in write_csv_file
+    write_df = df.write.format("csv").mode('overwrite').save(path)
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\readwriter.py", line 740, in save
+    self._jwrite.save(path)
+  File "C:\python\lib\site-packages\py4j\java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "C:\python\lib\site-packages\py4j\protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 20.0 failed 1 times, most recent failure: Lost task 0.0 in stage 20.0 (TID 26) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+2023-05-27 23:55:26,067:INFO:main:Pipeline executed
+2023-05-27 23:55:27,105:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-28 00:03:41,434:INFO:main:Recipe Application started
+2023-05-28 00:04:19,261:INFO:pipeline:run_pipeline method started
+2023-05-28 00:04:19,261:INFO:ingest:schema validation started
+2023-05-28 00:04:19,272:INFO:ingest:Directory is not empty
+2023-05-28 00:04:33,498:INFO:ingest:template and json schema matching
+2023-05-28 00:04:33,498:INFO:pipeline:schema validation done
+2023-05-28 00:04:38,307:INFO:ingest:data ingested into ingest folder
+2023-05-28 00:04:38,308:INFO:pipeline:ingest done
+2023-05-28 00:04:38,308:INFO:transform:parsing of column started
+2023-05-28 00:04:40,210:INFO:transform:parsing of the column done
+2023-05-28 00:04:40,211:INFO:pipeline:parse done
+2023-05-28 00:04:40,211:INFO:transform:Quality data started
+2023-05-28 00:04:40,580:INFO:transform:Quality data passed
+2023-05-28 00:04:40,582:INFO:pipeline:data quality checks done
+2023-05-28 00:04:40,582:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-05-28 00:04:47,400:INFO:pipeline:recipe difficulties insights done
+2023-05-28 00:05:00,914:ERROR:pipeline:FoundError An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 20.0 failed 1 times, most recent failure: Lost task 0.0 in stage 20.0 (TID 26) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 52, in run_pipeline
+    persist_process.persist_csv_records(recipe_difficulties, persist_path)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\persist.py", line 14, in persist_csv_records
+    return spark_utility.write_csv_file(df, file)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\utility\spark_utility.py", line 23, in write_csv_file
+    write_df = df.write.format("csv").mode('overwrite').save(path)
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\readwriter.py", line 740, in save
+    self._jwrite.save(path)
+  File "C:\python\lib\site-packages\py4j\java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "C:\python\lib\site-packages\py4j\protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 20.0 failed 1 times, most recent failure: Lost task 0.0 in stage 20.0 (TID 26) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+2023-05-28 00:05:01,050:INFO:main:Pipeline executed
+2023-05-28 00:05:02,241:INFO:py4j.clientserver:Closing down clientserver connection
+2023-05-28 00:08:03,313:INFO:main:Recipe Application started
+2023-05-28 00:08:47,550:INFO:pipeline:run_pipeline method started
+2023-05-28 00:08:47,551:INFO:ingest:schema validation started
+2023-05-28 00:08:47,566:INFO:ingest:Directory is not empty
+2023-05-28 00:09:11,014:INFO:ingest:template and json schema matching
+2023-05-28 00:09:11,014:INFO:pipeline:schema validation done
+2023-05-28 00:09:17,377:INFO:ingest:data ingested into ingest folder
+2023-05-28 00:09:17,378:INFO:pipeline:ingest done
+2023-05-28 00:09:17,378:INFO:transform:parsing of column started
+2023-05-28 00:09:20,887:INFO:transform:parsing of the column done
+2023-05-28 00:09:20,887:INFO:pipeline:parse done
+2023-05-28 00:09:20,887:INFO:transform:Quality data started
+2023-05-28 00:09:21,215:INFO:transform:Quality data passed
+2023-05-28 00:09:21,216:INFO:pipeline:data quality checks done
+2023-05-28 00:09:21,216:INFO:difficulties_insights:recipe_difficulties_wise_insights started
+2023-05-28 00:09:30,043:INFO:pipeline:recipe difficulties insights done
+2023-05-28 00:09:43,768:ERROR:pipeline:FoundError An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 20.0 failed 1 times, most recent failure: Lost task 0.0 in stage 20.0 (TID 26) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+Traceback (most recent call last):
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\pipeline.py", line 52, in run_pipeline
+    persist_process.persist_csv_records(recipe_difficulties, persist_path)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\persist.py", line 14, in persist_csv_records
+    return spark_utility.write_csv_file(df, file)
+  File "C:\Users\QL725WY\Downloads\hellofresh_docker\images\hellofresh_container\utility\spark_utility.py", line 23, in write_csv_file
+    write_df = df.write.format("csv").mode('overwrite').save(path)
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\readwriter.py", line 740, in save
+    self._jwrite.save(path)
+  File "C:\python\lib\site-packages\py4j\java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "C:\Users\QL725WY\AppData\Roaming\Python\Python310\site-packages\pyspark\sql\utils.py", line 111, in deco
+    return f(*a, **kw)
+  File "C:\python\lib\site-packages\py4j\protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o199.save.
+: org.apache.spark.SparkException: Job aborted.
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.jobAbortedError(QueryExecutionErrors.scala:496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:251)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:186)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$5(SQLExecution.scala:103)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:163)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:90)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:775)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:64)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:97)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:93)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:82)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:481)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:30)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:457)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:93)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:80)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:78)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:848)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:382)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:355)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 20.0 failed 1 times, most recent failure: Lost task 0.0 in stage 20.0 (TID 26) (host.docker.internal executor driver): org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2454)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2403)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2402)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2402)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1160)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1160)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:2642)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2584)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2573)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker failed to connect back.
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:188)
+	at org.apache.spark.api.python.PythonWorkerFactory.create(PythonWorkerFactory.scala:108)
+	at org.apache.spark.SparkEnv.createPythonWorker(SparkEnv.scala:121)
+	at org.apache.spark.api.python.BasePythonRunner.compute(PythonRunner.scala:162)
+	at org.apache.spark.sql.execution.python.BatchEvalPythonExec.evaluate(BatchEvalPythonExec.scala:81)
+	at org.apache.spark.sql.execution.python.EvalPythonExec.$anonfun$doExecute$2(EvalPythonExec.scala:130)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:863)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:863)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:506)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1491)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:509)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.SocketTimeoutException: Accept timed out
+	at java.net.DualStackPlainSocketImpl.waitForNewConnection(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535)
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545)
+	at java.net.ServerSocket.accept(ServerSocket.java:513)
+	at org.apache.spark.api.python.PythonWorkerFactory.createSimpleWorker(PythonWorkerFactory.scala:175)
+	... 26 more
+
+2023-05-28 00:09:43,799:INFO:main:Pipeline executed
+2023-05-28 00:09:45,080:INFO:py4j.clientserver:Closing down clientserver connection
